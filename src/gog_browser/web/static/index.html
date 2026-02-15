@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOG Games Browser</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>GOG Games Browser</h1>
+    <div class="actions">
+      <button type="button" id="scanBtn" class="btn btn-primary">Scan now</button>
+      <input type="text" id="searchInput" placeholder="Filter games..." class="search">
+    </div>
+  </header>
+  <main class="main">
+    <p id="status" class="status"></p>
+    <div id="gameList" class="game-list"></div>
+    <div id="detailPanel" class="detail-panel hidden">
+      <div class="detail-header">
+        <h2 id="detailTitle"></h2>
+        <button type="button" id="detailClose" class="btn btn-sm">Close</button>
+      </div>
+      <div id="detailContent" class="detail-content"></div>
+      <div class="detail-actions">
+        <button type="button" id="refreshBtn" class="btn btn-secondary">Refresh from GOG</button>
+        <div class="override-form">
+          <label>GOG search name override</label>
+          <input type="text" id="overrideName" placeholder="Name to search on GOG">
+          <button type="button" id="saveOverrideBtn" class="btn btn-secondary">Save override</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

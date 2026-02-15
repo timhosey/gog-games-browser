@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gog-browser"
+version = "0.1.0"
+description = "Web browser for GOG game installers on your NAS"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "httpx>=0.26.0",
+    "rarfile>=4.2",
+    "APScheduler>=3.10.0",
+]
+
+[project.scripts]
+gog-browser = "gog_browser.main:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,21 @@
+# GOG Games Browser - run with Docker Compose.
+# Set env vars (or use .env file): GOG_INSTALLER_PATH, GOG_METADATA_PATH, GOG_SCAN_SCHEDULE, DISCORD_WEBHOOK_URL.
+# Mount your installer and metadata paths as volumes.
+
+services:
+  gog-browser:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - GOG_INSTALLER_PATH=/data/installers
+      - GOG_METADATA_PATH=/data/metadata
+      # Optional: cron for daily 2am scan, or "daily"
+      - GOG_SCAN_SCHEDULE=daily
+      # Optional: Discord webhook URL for scan events
+      # - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
+    volumes:
+      # Mount your NAS/path where GOG installers live
+      - ./installers:/data/installers
+      # Mount where metadata (game.json, screenshots) will be stored
+      - ./metadata:/data/metadata
